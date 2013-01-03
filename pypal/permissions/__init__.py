@@ -1,8 +1,7 @@
 from pypal import AppIDResource
 
 class PermissionsResource(AppIDResource):
-	url = 'https://svcs.paypal.com/Permissions/'
-	url_debug = 'https://svcs.sandbox.paypal.com/Permissions/'
+	resource = 'Permissions'
 
 	def cancel_permissions(self, **kwargs):
 		return self.request('CancelPermissions', **kwargs)

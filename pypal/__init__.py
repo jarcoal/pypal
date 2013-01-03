@@ -1,6 +1,9 @@
 import requests, json
 from urllib import urlencode
 
+API_BASE = 'https://svcs.paypal.com'
+API_BASE_DEBUG = 'https://svcs.sandbox.paypal.com'
+
 
 class AppIDResource(object):
 	"""
@@ -10,6 +13,8 @@ class AppIDResource(object):
 	- permissions
 	- invoice
 	"""
+
+	resource = None
 
 	def __init__(self, user_id, security_password, security_signature, application_id, debug=False):
 		self.debug = debug
@@ -23,12 +28,16 @@ class AppIDResource(object):
 			'X-PAYPAL-RESPONSE-DATA-FORMAT': 'JSON',
 		}
 
-	def get_url(self, resource):
-		return (self.url if not self.debug else self.url_debug) + resource
+	def get_url(self, action):
+		return '/'.join([API_BASE if self.debug else API_BASE_DEBUG, self.resource, action])
 
-	def request(self, resource, data):
+	def request(self, action, data):
 		"""
 		Makes an authorized POST request to PayPal
 		"""
-		req = requests.post(self.get_url(resource), data=urlencode(json.dumps(data)), headers=self.headers)
+
+		if 'request_envelope' not in data:
+			data['request_envelope'] = { 'requestEnvelope': { 'errorLanguage': 'en_US' } };
+
+		req = requests.post(self.get_url(action), data=urlencode(json.dumps(data)), headers=self.headers)
 		return req.json()

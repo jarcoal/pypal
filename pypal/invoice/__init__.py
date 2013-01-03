@@ -1,8 +1,7 @@
 from pypal import AppIDResource
 
 class InvoiceResource(AppIDResource):
-	url = 'https://svcs.paypal.com/Invoice/'
-	url_debug = 'https://svcs.sandbox.paypal.com/Invoice/'
+	resource = 'Invoice'
 
 	def cancel_invoice(self, **kwargs):
 		return self.request('CancelInvoice', **kwargs)

@@ -1,8 +1,7 @@
 from pypal import AppIDResource
 
 class AdaptiveAccountsResource(AppIDResource):
-	url = 'https://svcs.paypal.com/AdaptiveAccounts/'
-	url_debug = 'https://svcs.sandbox.paypal.com/AdaptiveAccounts/'
+	resource = 'AdaptiveAccounts'
 
 	def add_bank_account(self, **kwargs):
 		return self.request('AddBankAccount', **kwargs)

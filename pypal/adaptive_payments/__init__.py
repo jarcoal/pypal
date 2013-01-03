@@ -1,8 +1,7 @@
 from pypal import AppIDResource
 
 class AdaptivePaymentsResource(AppIDResource):
-	url = 'https://svcs.paypal.com/AdaptivePayments/'
-	url_debug = 'https://svcs.sandbox.paypal.com/AdaptivePayments/'
+	resource = 'AdaptivePayments'
 
 	def pay(self, **kwargs):
 		return self.request('Pay', **kwargs)
