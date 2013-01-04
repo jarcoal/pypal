@@ -3,32 +3,32 @@ from pypal.resources import AppIDResource
 class InvoiceResource(AppIDResource):
 	resource = 'Invoice'
 
-	def cancel_invoice(self, **kwargs):
-		return self.request('CancelInvoice', **kwargs)
+	def cancel_invoice(self, **data):
+		return self.request('CancelInvoice', data)
 
-	def create_and_send_invoice(self, **kwargs):
-		return self.request('CreateAndSendInvoice', **kwargs)
+	def create_and_send_invoice(self, **data):
+		return self.request('CreateAndSendInvoice', data)
 
-	def create_invoice(self, **kwargs):
-		return self.request('CreateInvoice', **kwargs)
+	def create_invoice(self, **data):
+		return self.request('CreateInvoice', data)
 
-	def get_invoice_details(self, **kwargs):
-		return self.request('GetInvoiceDetails', **kwargs)
+	def get_invoice_details(self, **data):
+		return self.request('GetInvoiceDetails', data)
 
-	def mark_invoice_as_paid(self, **kwargs):
-		return self.request('MarkInvoiceAsPaid', **kwargs)
+	def mark_invoice_as_paid(self, **data):
+		return self.request('MarkInvoiceAsPaid', data)
 
-	def mark_invoice_as_refunded(self, **kwargs):
-		return self.request('MarkInvoiceAsRefunded', **kwargs)
+	def mark_invoice_as_refunded(self, **data):
+		return self.request('MarkInvoiceAsRefunded', data)
 
-	def mark_invoice_as_unpaid(self, **kwargs):
-		return self.request('MarkInvoiceAsUnpaid', **kwargs)
+	def mark_invoice_as_unpaid(self, **data):
+		return self.request('MarkInvoiceAsUnpaid', data)
 
-	def search_invoices(self, **kwargs):
-		return self.request('SearchInvoices', **kwargs)
+	def search_invoices(self, **data):
+		return self.request('SearchInvoices', data)
 
-	def send_invoice(self, **kwargs):
-		return self.request('SendInvoice', **kwargs)
+	def send_invoice(self, **data):
+		return self.request('SendInvoice', data)
 
-	def update_invoice(self, **kwargs):
-		return self.request('UpdateInvoice', **kwargs)
+	def update_invoice(self, **data):
+		return self.request('UpdateInvoice', data)

@@ -3,17 +3,17 @@ from pypal.resources import AppIDResource
 class AdaptivePaymentsResource(AppIDResource):
 	resource = 'AdaptivePayments'
 
-	def pay(self, **kwargs):
-		return self.request('Pay', **kwargs)
+	def pay(self, **data):
+		return self.request('Pay', data)
 
-	def payment_details(self, **kwargs):
-		return self.request('PaymentDetails', **kwargs)
+	def payment_details(self, **data):
+		return self.request('PaymentDetails', data)
 
-	def refund(self, **kwargs):
-		return self.request('Refund', **kwargs)
+	def refund(self, **data):
+		return self.request('Refund', data)
 
-	def preapproval(self, **kwargs):
-		return self.request('Preapproval', **kwargs)
+	def preapproval(self, **data):
+		return self.request('Preapproval', data)
 
-	def preapproval_details(self, **kwargs):
-		return self.request('PreapprovalDetails', **kwargs)
+	def preapproval_details(self, **data):
+		return self.request('PreapprovalDetails', data)
