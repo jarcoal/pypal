@@ -33,8 +33,8 @@ class AppIDResource(object):
 		Makes an authorized POST request to PayPal
 		"""
 
-		if 'request_envelope' not in data:
-			data['request_envelope'] = { 'requestEnvelope': { 'errorLanguage': 'en_US' } };
+		if 'requestEnvelope' not in data:
+			data['requestEnvelope'] = { 'errorLanguage': 'en_US' };
 
 		req = requests.post(self.get_url(action), data=json.dumps(data), headers=self.headers)
 		return req.json()
