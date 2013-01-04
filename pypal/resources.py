@@ -26,7 +26,7 @@ class AppIDResource(object):
 		}
 
 	def get_url(self, action):
-		return '/'.join([API_BASE_URL if self.debug else API_BASE_URL_DEBUG, self.resource, action])
+		return '/'.join([API_BASE_URL_DEBUG if self.debug else API_BASE_URL, self.resource, action])
 
 	def request(self, action, data):
 		"""
