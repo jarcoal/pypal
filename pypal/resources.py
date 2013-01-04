@@ -1,6 +1,4 @@
 import requests, json
-from urllib import urlencode
-
 from pypal import API_BASE_URL, API_BASE_URL_DEBUG
 
 
@@ -38,5 +36,5 @@ class AppIDResource(object):
 		if 'request_envelope' not in data:
 			data['request_envelope'] = { 'requestEnvelope': { 'errorLanguage': 'en_US' } };
 
-		req = requests.post(self.get_url(action), data=urlencode(json.dumps(data)), headers=self.headers)
+		req = requests.post(self.get_url(action), data=json.dumps(data), headers=self.headers)
 		return req.json()
