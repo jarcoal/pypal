@@ -1,8 +1,9 @@
-import requests, json
+import json
+from http import PayPalSession
 from pypal import API_BASE_URL, API_BASE_URL_DEBUG
 
 
-class AppIDResource(object):
+class AppIDResource(PayPalSession):
 	"""
 	Base resource for making requests against PayPal's AppID resources:
 	- adaptive payments
@@ -13,28 +14,24 @@ class AppIDResource(object):
 
 	resource = None
 
-	def __init__(self, user_id, security_password, security_signature, application_id, debug=False):
-		self.debug = debug
+	def __init__(self, *args, **kwargs):
+		self.sandbox = kwargs.pop('sandbox', False)
+		self.base_url = API_BASE_URL_DEBUG if self.sandbox else API_BASE_URL
 
-		self.headers = {
-			'X-PAYPAL-SECURITY-USERID': user_id,
-			'X-PAYPAL-SECURITY-PASSWORD': security_password,
-			'X-PAYPAL-SECURITY-SIGNATURE': security_signature,
-			'X-PAYPAL-APPLICATION-ID': application_id,
-			'X-PAYPAL-REQUEST-DATA-FORMAT': 'JSON',
-			'X-PAYPAL-RESPONSE-DATA-FORMAT': 'JSON',
-		}
+		super(AppIDResource, self).__init__(*args, **kwargs)
 
 	def get_url(self, action):
-		return '/'.join([API_BASE_URL_DEBUG if self.debug else API_BASE_URL, self.resource, action])
-
-	def request(self, action, data):
 		"""
-		Makes an authorized POST request to PayPal
+		Builds a URL for a PayPal resource.
+		"""
+		return '/'.join([self.base_url, self.resource, action])
+
+	def request(self, action, data, **kwargs):
+		"""
+		Execute a request to a PayPal AppID API.
 		"""
 
 		if 'requestEnvelope' not in data:
-			data['requestEnvelope'] = { 'errorLanguage': 'en_US' };
+			data['requestEnvelope'] = { 'errorLanguage': 'en_US' }
 
-		req = requests.post(self.get_url(action), data=json.dumps(data), headers=self.headers)
-		return req.json()
+		return super(AppIDResource, self).request('POST', self.get_url(action), data=json.dumps(data), **kwargs).json()
