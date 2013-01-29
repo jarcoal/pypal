@@ -1,6 +1,6 @@
 import json
 from http import PayPalSession
-from pypal import API_BASE_URL, API_BASE_URL_DEBUG
+from pypal import API_BASE_URL, API_BASE_URL_SANDBOX
 
 
 class AppIDResource(PayPalSession):
@@ -16,7 +16,7 @@ class AppIDResource(PayPalSession):
 
 	def __init__(self, *args, **kwargs):
 		self.sandbox = kwargs.pop('sandbox', False)
-		self.base_url = API_BASE_URL_DEBUG if self.sandbox else API_BASE_URL
+		self.base_url = API_BASE_URL_SANDBOX if self.sandbox else API_BASE_URL
 
 		super(AppIDResource, self).__init__(*args, **kwargs)
 
