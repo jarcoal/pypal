@@ -19,44 +19,44 @@ pip install pypal
 
 ###pypal.AdaptiveAccountsResource(user_id, security_password, security_signature, application_id, sandbox=False)
 
-add_bank_account(**parameters)
-add_payment_card(**parameters)
-create_account(**parameters)
-get_user_agreement(**parameters)
-set_funding_source_confirmed(**parameters)
+* add_bank_account(**parameters)
+* add_payment_card(**parameters)
+* create_account(**parameters)
+* get_user_agreement(**parameters)
+* set_funding_source_confirmed(**parameters)
 
 
 ###pypal.AdaptivePaymentsResource(user_id, security_password, security_signature, application_id, sandbox=False)
 
-pay(**parameters)
-payment_details(**parameters)
-refund(**parameters)
-preapproval(**parameters)
-preapproval_details(**parameters)
+* pay(**parameters)
+* payment_details(**parameters)
+* refund(**parameters)
+* preapproval(**parameters)
+* preapproval_details(**parameters)
 
 
 ###pypal.InvoiceResource(user_id, security_password, security_signature, application_id, sandbox=False)
 
-cancel_invoice(**parameters)
-create_and_send_invoice(**parameters)
-create_invoice(**parameters)
-get_invoice_details(**parameters)
-mark_invoice_as_paid(**parameters)
-mark_invoice_as_refunded(**parameters)
-mark_invoice_as_unpaid(**parameters)
-search_invoices(**parameters)
-send_invoice(**parameters)
-update_invoice(**parameters)
+* cancel_invoice(**parameters)
+* create_and_send_invoice(**parameters)
+* create_invoice(**parameters)
+* get_invoice_details(**parameters)
+* mark_invoice_as_paid(**parameters)
+* mark_invoice_as_refunded(**parameters)
+* mark_invoice_as_unpaid(**parameters)
+* search_invoices(**parameters)
+* send_invoice(**parameters)
+* update_invoice(**parameters)
 
 
 ###pypal.PermissionsResource(user_id, security_password, security_signature, application_id, sandbox=False)
 
-cancel_permissions(**parameters)
-get_access_token(**parameters)
-get_advanced_personal_data(**parameters)
-get_basic_personal_data(**parameters)
-get_permissions(**parameters)
-request_permissions(**parameters)
+* cancel_permissions(**parameters)
+* get_access_token(**parameters)
+* get_advanced_personal_data(**parameters)
+* get_basic_personal_data(**parameters)
+* get_permissions(**parameters)
+* request_permissions(**parameters)
 
 
 ###pypal.http.PayPalSession(user_id, security_password, security_signature, application_id)
