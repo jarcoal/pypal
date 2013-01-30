@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
 	name='pypal',
-	version='0.1',
+	version='0.2',
 	description='PayPal API bindings in Python',
 	author='Jared Morse',
 	author_email='jarcoal@gmail.com',
