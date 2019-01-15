@@ -1,5 +1,6 @@
+from __future__ import absolute_import
 import json
-from http import PayPalSession
+from .http import PayPalSession
 from pypal import API_BASE_URL, API_BASE_URL_SANDBOX
 
 
